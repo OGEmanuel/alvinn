@@ -10,14 +10,20 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthIndexRouteImport } from './routes/auth/index'
 import { Route as DemoTanstackQueryRouteImport } from './routes/demo/tanstack-query'
 import { Route as DemoTableRouteImport } from './routes/demo/table'
+import { Route as AuthVerifyEmailIndexRouteImport } from './routes/auth/verify-email/index'
+import { Route as AuthSignUpIndexRouteImport } from './routes/auth/sign-up/index'
+import { Route as AuthDescribeYourselfIndexRouteImport } from './routes/auth/describe-yourself/index'
+import { Route as AuthConnectAccountsIndexRouteImport } from './routes/auth/connect-accounts/index'
 import { Route as DemoStartServerFuncsRouteImport } from './routes/demo/start.server-funcs'
 import { Route as DemoStartApiRequestRouteImport } from './routes/demo/start.api-request'
 import { Route as DemoFormSimpleRouteImport } from './routes/demo/form.simple'
 import { Route as DemoFormAddressRouteImport } from './routes/demo/form.address'
 import { Route as DemoApiTqTodosRouteImport } from './routes/demo/api.tq-todos'
 import { Route as DemoApiNamesRouteImport } from './routes/demo/api.names'
+import { Route as AuthSignUpEnterEmailRouteImport } from './routes/auth/sign-up/enter-email'
 import { Route as DemoStartSsrIndexRouteImport } from './routes/demo/start.ssr.index'
 import { Route as DemoStartSsrSpaModeRouteImport } from './routes/demo/start.ssr.spa-mode'
 import { Route as DemoStartSsrFullSsrRouteImport } from './routes/demo/start.ssr.full-ssr'
@@ -26,6 +32,11 @@ import { Route as DemoStartSsrDataOnlyRouteImport } from './routes/demo/start.ss
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthIndexRoute = AuthIndexRouteImport.update({
+  id: '/auth/',
+  path: '/auth/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoTanstackQueryRoute = DemoTanstackQueryRouteImport.update({
@@ -38,6 +49,28 @@ const DemoTableRoute = DemoTableRouteImport.update({
   path: '/demo/table',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthVerifyEmailIndexRoute = AuthVerifyEmailIndexRouteImport.update({
+  id: '/auth/verify-email/',
+  path: '/auth/verify-email/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthSignUpIndexRoute = AuthSignUpIndexRouteImport.update({
+  id: '/auth/sign-up/',
+  path: '/auth/sign-up/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthDescribeYourselfIndexRoute =
+  AuthDescribeYourselfIndexRouteImport.update({
+    id: '/auth/describe-yourself/',
+    path: '/auth/describe-yourself/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AuthConnectAccountsIndexRoute =
+  AuthConnectAccountsIndexRouteImport.update({
+    id: '/auth/connect-accounts/',
+    path: '/auth/connect-accounts/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const DemoStartServerFuncsRoute = DemoStartServerFuncsRouteImport.update({
   id: '/demo/start/server-funcs',
   path: '/demo/start/server-funcs',
@@ -68,6 +101,11 @@ const DemoApiNamesRoute = DemoApiNamesRouteImport.update({
   path: '/demo/api/names',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthSignUpEnterEmailRoute = AuthSignUpEnterEmailRouteImport.update({
+  id: '/auth/sign-up/enter-email',
+  path: '/auth/sign-up/enter-email',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DemoStartSsrIndexRoute = DemoStartSsrIndexRouteImport.update({
   id: '/demo/start/ssr/',
   path: '/demo/start/ssr/',
@@ -93,12 +131,18 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/auth/': typeof AuthIndexRoute
+  '/auth/sign-up/enter-email': typeof AuthSignUpEnterEmailRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
   '/demo/form/address': typeof DemoFormAddressRoute
   '/demo/form/simple': typeof DemoFormSimpleRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/auth/connect-accounts/': typeof AuthConnectAccountsIndexRoute
+  '/auth/describe-yourself/': typeof AuthDescribeYourselfIndexRoute
+  '/auth/sign-up/': typeof AuthSignUpIndexRoute
+  '/auth/verify-email/': typeof AuthVerifyEmailIndexRoute
   '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
   '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
   '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
@@ -108,12 +152,18 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/auth': typeof AuthIndexRoute
+  '/auth/sign-up/enter-email': typeof AuthSignUpEnterEmailRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
   '/demo/form/address': typeof DemoFormAddressRoute
   '/demo/form/simple': typeof DemoFormSimpleRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/auth/connect-accounts': typeof AuthConnectAccountsIndexRoute
+  '/auth/describe-yourself': typeof AuthDescribeYourselfIndexRoute
+  '/auth/sign-up': typeof AuthSignUpIndexRoute
+  '/auth/verify-email': typeof AuthVerifyEmailIndexRoute
   '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
   '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
   '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
@@ -124,12 +174,18 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/auth/': typeof AuthIndexRoute
+  '/auth/sign-up/enter-email': typeof AuthSignUpEnterEmailRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
   '/demo/form/address': typeof DemoFormAddressRoute
   '/demo/form/simple': typeof DemoFormSimpleRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/auth/connect-accounts/': typeof AuthConnectAccountsIndexRoute
+  '/auth/describe-yourself/': typeof AuthDescribeYourselfIndexRoute
+  '/auth/sign-up/': typeof AuthSignUpIndexRoute
+  '/auth/verify-email/': typeof AuthVerifyEmailIndexRoute
   '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
   '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
   '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
@@ -141,12 +197,18 @@ export interface FileRouteTypes {
     | '/'
     | '/demo/table'
     | '/demo/tanstack-query'
+    | '/auth/'
+    | '/auth/sign-up/enter-email'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
     | '/demo/form/address'
     | '/demo/form/simple'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/auth/connect-accounts/'
+    | '/auth/describe-yourself/'
+    | '/auth/sign-up/'
+    | '/auth/verify-email/'
     | '/demo/start/ssr/data-only'
     | '/demo/start/ssr/full-ssr'
     | '/demo/start/ssr/spa-mode'
@@ -156,12 +218,18 @@ export interface FileRouteTypes {
     | '/'
     | '/demo/table'
     | '/demo/tanstack-query'
+    | '/auth'
+    | '/auth/sign-up/enter-email'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
     | '/demo/form/address'
     | '/demo/form/simple'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/auth/connect-accounts'
+    | '/auth/describe-yourself'
+    | '/auth/sign-up'
+    | '/auth/verify-email'
     | '/demo/start/ssr/data-only'
     | '/demo/start/ssr/full-ssr'
     | '/demo/start/ssr/spa-mode'
@@ -171,12 +239,18 @@ export interface FileRouteTypes {
     | '/'
     | '/demo/table'
     | '/demo/tanstack-query'
+    | '/auth/'
+    | '/auth/sign-up/enter-email'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
     | '/demo/form/address'
     | '/demo/form/simple'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/auth/connect-accounts/'
+    | '/auth/describe-yourself/'
+    | '/auth/sign-up/'
+    | '/auth/verify-email/'
     | '/demo/start/ssr/data-only'
     | '/demo/start/ssr/full-ssr'
     | '/demo/start/ssr/spa-mode'
@@ -187,12 +261,18 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DemoTableRoute: typeof DemoTableRoute
   DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
+  AuthIndexRoute: typeof AuthIndexRoute
+  AuthSignUpEnterEmailRoute: typeof AuthSignUpEnterEmailRoute
   DemoApiNamesRoute: typeof DemoApiNamesRoute
   DemoApiTqTodosRoute: typeof DemoApiTqTodosRoute
   DemoFormAddressRoute: typeof DemoFormAddressRoute
   DemoFormSimpleRoute: typeof DemoFormSimpleRoute
   DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
   DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
+  AuthConnectAccountsIndexRoute: typeof AuthConnectAccountsIndexRoute
+  AuthDescribeYourselfIndexRoute: typeof AuthDescribeYourselfIndexRoute
+  AuthSignUpIndexRoute: typeof AuthSignUpIndexRoute
+  AuthVerifyEmailIndexRoute: typeof AuthVerifyEmailIndexRoute
   DemoStartSsrDataOnlyRoute: typeof DemoStartSsrDataOnlyRoute
   DemoStartSsrFullSsrRoute: typeof DemoStartSsrFullSsrRoute
   DemoStartSsrSpaModeRoute: typeof DemoStartSsrSpaModeRoute
@@ -208,6 +288,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth/': {
+      id: '/auth/'
+      path: '/auth'
+      fullPath: '/auth/'
+      preLoaderRoute: typeof AuthIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/demo/tanstack-query': {
       id: '/demo/tanstack-query'
       path: '/demo/tanstack-query'
@@ -220,6 +307,34 @@ declare module '@tanstack/react-router' {
       path: '/demo/table'
       fullPath: '/demo/table'
       preLoaderRoute: typeof DemoTableRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/verify-email/': {
+      id: '/auth/verify-email/'
+      path: '/auth/verify-email'
+      fullPath: '/auth/verify-email/'
+      preLoaderRoute: typeof AuthVerifyEmailIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/sign-up/': {
+      id: '/auth/sign-up/'
+      path: '/auth/sign-up'
+      fullPath: '/auth/sign-up/'
+      preLoaderRoute: typeof AuthSignUpIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/describe-yourself/': {
+      id: '/auth/describe-yourself/'
+      path: '/auth/describe-yourself'
+      fullPath: '/auth/describe-yourself/'
+      preLoaderRoute: typeof AuthDescribeYourselfIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/connect-accounts/': {
+      id: '/auth/connect-accounts/'
+      path: '/auth/connect-accounts'
+      fullPath: '/auth/connect-accounts/'
+      preLoaderRoute: typeof AuthConnectAccountsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/start/server-funcs': {
@@ -264,6 +379,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoApiNamesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth/sign-up/enter-email': {
+      id: '/auth/sign-up/enter-email'
+      path: '/auth/sign-up/enter-email'
+      fullPath: '/auth/sign-up/enter-email'
+      preLoaderRoute: typeof AuthSignUpEnterEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/demo/start/ssr/': {
       id: '/demo/start/ssr/'
       path: '/demo/start/ssr'
@@ -299,12 +421,18 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DemoTableRoute: DemoTableRoute,
   DemoTanstackQueryRoute: DemoTanstackQueryRoute,
+  AuthIndexRoute: AuthIndexRoute,
+  AuthSignUpEnterEmailRoute: AuthSignUpEnterEmailRoute,
   DemoApiNamesRoute: DemoApiNamesRoute,
   DemoApiTqTodosRoute: DemoApiTqTodosRoute,
   DemoFormAddressRoute: DemoFormAddressRoute,
   DemoFormSimpleRoute: DemoFormSimpleRoute,
   DemoStartApiRequestRoute: DemoStartApiRequestRoute,
   DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
+  AuthConnectAccountsIndexRoute: AuthConnectAccountsIndexRoute,
+  AuthDescribeYourselfIndexRoute: AuthDescribeYourselfIndexRoute,
+  AuthSignUpIndexRoute: AuthSignUpIndexRoute,
+  AuthVerifyEmailIndexRoute: AuthVerifyEmailIndexRoute,
   DemoStartSsrDataOnlyRoute: DemoStartSsrDataOnlyRoute,
   DemoStartSsrFullSsrRoute: DemoStartSsrFullSsrRoute,
   DemoStartSsrSpaModeRoute: DemoStartSsrSpaModeRoute,

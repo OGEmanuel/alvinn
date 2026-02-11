@@ -21,8 +21,8 @@ code {
 }
 
 :root {
-  /* --background: oklch(1 0 0); */
   --background: oklch(16.842% 0.00002 271.152);
+  --secondary-background: oklch(96.115% 0.00011 271.152);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
@@ -55,7 +55,6 @@ code {
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.871 0.006 286.286);
-  --font-inter: 'Inter', system-ui, sans-serif;
 }
 
 .dark {
@@ -130,6 +129,10 @@ code {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --tracking-custom: 0.03em;
+  --tracking-custom-sm: 0.01em;
+  --leading-custom: 22px;
 }
 
 @layer base {

@@ -1,0 +1,41 @@
+import type { ComponentProps } from 'react';
+import { Field, FieldError } from '../field';
+import { InputOTP, InputOTPGroup, InputOTPSlot } from '../input-otp';
+import { cn } from '@/lib/utils';
+import type { FormFieldApi } from '@/lib/constants';
+
+interface InputFieldProps<TValue = string> extends ComponentProps<'input'> {
+  field: FormFieldApi<TValue>;
+  isInvalid?: boolean;
+  valid?: boolean;
+}
+
+const InputOTPField = <TValue = string,>(props: InputFieldProps<TValue>) => {
+  const { field, isInvalid, valid } = props;
+
+  return (
+    <Field data-invalid={isInvalid}>
+      <InputOTP
+        maxLength={6}
+        id={field.name}
+        name={field.name}
+        value={field.state.value as string}
+        onBlur={field.handleBlur}
+        onChange={e => field.handleChange(e as TValue)}
+        aria-invalid={isInvalid}
+      >
+        <InputOTPGroup className={cn('w-full justify-start gap-4')}>
+          <InputOTPSlot valid={valid} index={0} />
+          <InputOTPSlot valid={valid} index={1} />
+          <InputOTPSlot valid={valid} index={2} />
+          <InputOTPSlot valid={valid} index={3} />
+          <InputOTPSlot valid={valid} index={4} />
+          <InputOTPSlot valid={valid} index={5} />
+        </InputOTPGroup>
+      </InputOTP>
+      {isInvalid && <FieldError errors={field.state.meta.errors} />}
+    </Field>
+  );
+};
+
+export default InputOTPField;

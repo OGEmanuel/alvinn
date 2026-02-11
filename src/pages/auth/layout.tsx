@@ -11,7 +11,7 @@ const AuthLayout = (props: {
     <section className="flex justify-center">
       <div
         className={cn(
-          'flex w-full max-w-110 flex-col items-center gap-6 pt-45',
+          'flex w-full max-w-110 flex-col items-center gap-6 pt-14 max-sm:px-6 sm:pt-45',
           className,
         )}
       >

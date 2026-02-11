@@ -16,7 +16,7 @@ const ConnectAccounts = () => {
           Connect at least two social accounts to continue.
         </AuthDescription>
       </AuthHeader>
-      <div className="w-full rounded-[20px] border-[0.7px] border-white/10 p-1">
+      <div className="flex w-full flex-col gap-1 rounded-[20px] border-[0.7px] border-white/10 p-1">
         <div className="flex items-center justify-between p-3">
           <div className="flex items-center gap-2">
             <Instagram />

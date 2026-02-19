@@ -6,9 +6,28 @@ import AuthLayout, {
   AuthTitle,
 } from '../layout';
 import GoogleIcon from '@/components/jsx-icons/google';
-import { Link } from '@tanstack/react-router';
+import { Link, useNavigate, useSearch } from '@tanstack/react-router';
+import { Activity } from 'react';
+import { cn } from '@/lib/utils';
+import EnterEmail from './enter-email';
 
 const SignUp = () => {
+  const { continueEmail } = useSearch({
+    from: '/auth/sign-up/',
+  });
+
+  const navigate = useNavigate({
+    from: '/auth/sign-up/',
+  });
+
+  const handleContinue = () => {
+    navigate({
+      search: {
+        continueEmail: true,
+      },
+    });
+  };
+
   return (
     <AuthLayout>
       <AuthHeader>
@@ -18,22 +37,54 @@ const SignUp = () => {
           socials accounts.
         </AuthDescription>
       </AuthHeader>
-      <div className="flex w-full flex-col gap-12">
-        <div className="flex w-max items-center gap-2 self-start">
-          <Button asChild>
-            <Link to="/auth/sign-up/enter-email">Continue with email</Link>
-          </Button>
-          <Button
-            variant={'secondary'}
-            className="gap-1 has-[>svg]:px-3 [&_svg:not([class*='size-'])]:size-5"
-          >
-            Continue with
-            <GoogleIcon />
-          </Button>
+      <div className="flex w-full flex-col gap-12 overflow-hidden">
+        <div
+          className={cn('relative flex w-full items-center gap-2 self-start')}
+        >
+          <div className="flex flex-1 items-center gap-2">
+            <div
+              className={cn(
+                'flex items-center gap-2',
+                continueEmail && 'hidden',
+              )}
+            >
+              <Button onClick={handleContinue}>Continue with email</Button>
+              <Button
+                variant={'secondary'}
+                className={cn(
+                  "gap-1 has-[>svg]:px-3 [&_svg:not([class*='size-'])]:size-5",
+                )}
+              >
+                Continue with
+                <GoogleIcon />
+              </Button>
+            </div>
+            <Activity mode={continueEmail ? 'visible' : 'hidden'}>
+              <EnterEmail
+                className={cn(
+                  'transition-opacity',
+                  continueEmail
+                    ? 'opacity-100'
+                    : 'pointer-events-none opacity-0',
+                )}
+              />
+            </Activity>
+          </div>
+          <Activity mode={continueEmail ? 'visible' : 'hidden'}>
+            <Button
+              form="email-form"
+              type="submit"
+              className={cn(
+                'opacity-0',
+                continueEmail ? 'animate-in' : 'pointer-events-none -z-10',
+              )}
+            >
+              Continue
+            </Button>
+          </Activity>
         </div>
         <AuthFooter>
-          <span>Oh, do you already have an account?</span>
-          {''}
+          <span>Oh, do you already have an account?</span>{' '}
           <Link to="/auth/sign-up">Login up</Link>
         </AuthFooter>
       </div>

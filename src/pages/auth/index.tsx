@@ -22,7 +22,14 @@ const AuthIntro = () => {
           Aliquam in elementum tellus.
         </p>
         <Button className="w-max" asChild>
-          <Link to="/auth/sign-up">Continue</Link>
+          <Link
+            viewTransition={{
+              types: ['slide-left'],
+            }}
+            to="/auth/sign-up"
+          >
+            Continue
+          </Link>
         </Button>
       </div>
     </AuthLayout>

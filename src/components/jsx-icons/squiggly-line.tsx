@@ -1,7 +1,7 @@
 const SquigglyLine = () => {
   return (
     <svg
-      width="441"
+      width="100%"
       height="13"
       viewBox="0 0 441 13"
       fill="none"
@@ -19,7 +19,7 @@ const SquigglyLine = () => {
         strokeOpacity="0.1"
       />
     </svg>
-  )
-}
+  );
+};
 
-export default SquigglyLine
+export default SquigglyLine;

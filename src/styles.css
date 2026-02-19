@@ -133,6 +133,18 @@ code {
   --tracking-custom: 0.03em;
   --tracking-custom-sm: 0.01em;
   --leading-custom: 22px;
+  --animate-in: in 150ms ease-out forwards;
+
+  @keyframes in {
+    from {
+      transform: translateX(-420%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
 }
 
 @layer base {
@@ -146,4 +158,69 @@ code {
 
 body {
   font-family: 'Inter', sans-serif;
+}
+
+.grid-template-stack {
+  grid-template-areas: 'stack';
+}
+
+.grid-area-stack {
+  grid-area: stack;
+}
+
+/* Slide Left Transition */
+html:active-view-transition-type(slide-left) {
+  &::view-transition-old(main-content) {
+    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-out-left;
+  }
+  &::view-transition-new(main-content) {
+    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-in-left;
+  }
+}
+
+@keyframes slide-out-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Slide Right Transition */
+html:active-view-transition-type(slide-right) {
+  &::view-transition-old(main-content) {
+    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-out-right;
+  }
+  &::view-transition-new(main-content) {
+    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-in-right;
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

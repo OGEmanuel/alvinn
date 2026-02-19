@@ -16,7 +16,9 @@ const AuthLayout = (props: {
         )}
       >
         <Logo className="self-start" />
-        {children}
+        <main className="flex flex-col gap-6 [view-transition-name:main-content]">
+          {children}
+        </main>
       </div>
     </section>
   );

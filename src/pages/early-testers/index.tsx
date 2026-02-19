@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Image } from '@unpic/react';
 
 const EarlyTesters = () => {
   return (
@@ -16,35 +15,31 @@ const EarlyTesters = () => {
               />
             </div>
             <ImageWrapper className="absolute right-9.5 bottom-[9.37px] size-18.75 -rotate-5">
-              <Image
+              <img
                 src="/img/sticker-1.jpg"
-                priority
-                layout="fullWidth"
                 alt="sticker"
+                className="size-full object-cover"
               />
             </ImageWrapper>
             <ImageWrapper className="absolute top-6 left-18.75 size-[62.5px] -rotate-10 rounded-[15.63px]">
-              <Image
+              <img
                 src="/img/sticker-2.jpg"
                 alt="sticker"
-                priority
-                layout="fullWidth"
+                className="size-full object-cover"
               />
             </ImageWrapper>
             <ImageWrapper className="absolute top-10 right-18.75 size-[37.5px] rotate-10 rounded-[9.38px]">
-              <Image
+              <img
                 src="/img/sticker-4.jpg"
                 alt="sticker"
-                priority
-                layout="fullWidth"
+                className="size-full object-cover"
               />
             </ImageWrapper>
             <ImageWrapper className="absolute bottom-[22.92px] left-13.25 size-12.5 rotate-5 rounded-[12.5px]">
-              <Image
+              <img
                 src="/img/sticker-2.jpg"
                 alt="sticker"
-                priority
-                layout="fullWidth"
+                className="size-full object-cover"
               />
             </ImageWrapper>
           </div>

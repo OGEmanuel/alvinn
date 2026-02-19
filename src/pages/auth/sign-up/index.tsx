@@ -37,14 +37,16 @@ const SignUp = () => {
           socials accounts.
         </AuthDescription>
       </AuthHeader>
-      <div className="flex w-full flex-col gap-12 overflow-hidden">
+      <div className="flex w-full flex-col gap-12 overflow-hidden border border-red-500">
         <div
-          className={cn('relative flex w-full items-center gap-2 self-start')}
+          className={cn(
+            'relative flex w-full items-center gap-2 self-start border border-green-500',
+          )}
         >
-          <div className="flex flex-1 items-center gap-2">
+          <div className="flex flex-1 items-center gap-2 border border-yellow-500">
             <div
               className={cn(
-                'flex items-center gap-2',
+                'flex items-center gap-2 border border-blue-500',
                 continueEmail && 'hidden',
               )}
             >

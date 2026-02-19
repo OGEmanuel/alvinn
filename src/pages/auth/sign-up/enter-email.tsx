@@ -3,7 +3,7 @@ import { useForm } from '@tanstack/react-form';
 import { FieldContent, FieldSet } from '@/components/ui/field';
 import InputField from '@/components/ui/custom/input';
 // import { toast } from 'sonner';
-import { Link, useNavigate } from '@tanstack/react-router';
+import { useNavigate } from '@tanstack/react-router';
 import { cn } from '@/lib/utils';
 
 const formSchema = z.object({
@@ -49,8 +49,8 @@ const EnterEmail = (props: { className?: string }) => {
           <form.Field
             name="email"
             children={field => {
-              const isInvalid =
-                field.state.meta.isTouched && !field.state.meta.isValid;
+              // const isInvalid =
+              //   field.state.meta.isTouched && !field.state.meta.isValid;
 
               // if (isInvalid) {
               //   toast.error('Invalid email address', {

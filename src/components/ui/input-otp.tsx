@@ -51,7 +51,7 @@ function InputOTPSlot({
       data-slot="input-otp-slot"
       data-active={isActive}
       className={cn(
-        'data-[active=true]:border-ring data-[active=true]:aria-invalid:ring-destructive/20 dark:data-[active=true]:aria-invalid:ring-destructive/40 aria-invalid:border-destructive data-[active=true]:aria-invalid:border-destructive dark:bg-input/30 -tracking-custom relative flex h-18 w-14 items-center justify-center rounded-[20px] border-[0.7px] border-white/10 bg-white/4 text-[2rem]/10 font-semibold text-white shadow-xs transition-all outline-none aria-valid:bg-red-500 data-[active=true]:z-10 data-[active=true]:bg-white/8 data-[active=true]:ring-[0.7px] data-[active=true]:ring-white/80',
+        'data-[active=true]:border-ring data-[active=true]:aria-invalid:ring-destructive/20 dark:data-[active=true]:aria-invalid:ring-destructive/40 aria-invalid:border-destructive data-[active=true]:aria-invalid:border-destructive dark:bg-input/30 -tracking-custom relative flex h-14 w-11 items-center justify-center rounded-[20px] border-[0.7px] border-white/10 bg-white/4 text-[2rem]/10 font-semibold text-white shadow-xs transition-all outline-none aria-valid:bg-red-500 data-[active=true]:z-10 data-[active=true]:bg-white/8 data-[active=true]:ring-[0.7px] data-[active=true]:ring-white/80 sm:h-18 sm:w-14',
         className,
         valid && 'ring-[0.7px] ring-white/80',
       )}

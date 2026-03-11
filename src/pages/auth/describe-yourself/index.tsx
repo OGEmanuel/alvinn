@@ -51,9 +51,17 @@ const DescriptionCard = (props: {
   return (
     <div className="relative flex flex-col gap-3 rounded-2xl border-[0.7px] border-white/10 px-4 py-3">
       <div className="flex">
-        <ImageCard src={imgSrc1} alt={title} className="-rotate-10" />
-        <ImageCard src={imgSrc2} alt={title} className="z-10 -mx-[16.5px]" />
-        <ImageCard src={imgSrc3} alt={title} className="z-20 rotate-10" />
+        <ImageCard
+          src={imgSrc1}
+          alt={title}
+          className="_-rotate-10 translate-x-[28px]"
+        />
+        <ImageCard src={imgSrc2} alt={title} className="_-mx-[16.5px] z-10" />
+        <ImageCard
+          src={imgSrc3}
+          alt={title}
+          className="_rotate-10 z-20 -mx-[28px]"
+        />
       </div>
       <div className="text-sm/custom -tracking-custom-sm flex flex-col gap-1">
         <p className="font-medium text-white">

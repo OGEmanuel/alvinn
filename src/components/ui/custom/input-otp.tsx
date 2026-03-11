@@ -24,7 +24,7 @@ const InputOTPField = <TValue = string,>(props: InputFieldProps<TValue>) => {
         onChange={e => field.handleChange(e as TValue)}
         aria-invalid={isInvalid}
       >
-        <InputOTPGroup className={cn('w-full justify-start gap-4')}>
+        <InputOTPGroup className={cn('w-full justify-start gap-2 sm:gap-4')}>
           <InputOTPSlot valid={valid} index={0} />
           <InputOTPSlot valid={valid} index={1} />
           <InputOTPSlot valid={valid} index={2} />
